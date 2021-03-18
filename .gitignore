@@ -3,6 +3,9 @@
 __pycache__
 config.py
 secrets.py
-secrets.py
+Main/secrets.py
 config.js
+Main/config.js
+config.py
+Main/config.py
 
