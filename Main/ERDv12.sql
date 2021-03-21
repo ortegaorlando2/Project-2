@@ -4,9 +4,12 @@
 
 DROP TABLE IF EXISTS mls;
 DROP TABLE IF EXISTS school_rating;
+-- DROP TABLE school_rating CASCADE;
 DROP TABLE IF EXISTS junction_table;
 DROP TABLE IF EXISTS elementary_table;
+-- DROP TABLE school_rating CASCADE;
 DROP TABLE IF EXISTS high_school_table;
+-- DROP TABLE school_rating CASCADE;
 
 CREATE TABLE "mls" (
     "mls" int   NOT NULL,
@@ -44,6 +47,16 @@ CREATE TABLE "mls" (
 
 SELECT * FROM mls;
 
+CREATE TABLE "junction_table" (
+    "mls" int   NOT NULL,
+    "campus_number" int   NOT NULL,
+	CONSTRAINT "pk_junction_table" PRIMARY KEY (
+        "mls"
+     )
+);
+
+SELECT * FROM junction_table;
+
 CREATE TABLE "school_rating" (
     "campus_number" int   NOT NULL,
     "school" varchar(50)   NOT NULL,
@@ -52,24 +65,11 @@ CREATE TABLE "school_rating" (
     "rating" varchar(20)   NOT NULL,
     "rating_yr" varchar(4)   NOT NULL,
     CONSTRAINT "pk_school_rating" PRIMARY KEY (
-        "campus_number","school"
+        "campus_number"
      )
 );
 
 SELECT * FROM school_rating;
-
-CREATE TABLE "junction_table" (
-    "mls" int   NOT NULL,
-    "campus_number" int   NOT NULL
-);
-
-SELECT * FROM junction_table;
-
-ALTER TABLE "junction_table" ADD CONSTRAINT "fk_junction_table_mls" FOREIGN KEY("mls")
-REFERENCES "mls" ("mls");
-
-ALTER TABLE "junction_table" ADD CONSTRAINT "fk_junction_table_campus_number" FOREIGN KEY("campus_number")
-REFERENCES "school_rating" ("campus_number");
 
 CREATE TABLE "elementary_table" (
     "campus_number" int   NOT NULL,
@@ -78,9 +78,8 @@ CREATE TABLE "elementary_table" (
     "yrs_unacceptable" int   NOT NULL,
     "rating" varchar(20)   NOT NULL,
 	"year" int   NOT NULL,
-    CONSTRAINT "pk_elementary_table" PRIMARY KEY (
-        "campus_number"
-     )
+	PRIMARY KEY ("campus_number"),
+    FOREIGN KEY (campus_number) REFERENCES school_rating (campus_number)
 );
 
 SELECT * FROM elementary_table;
@@ -92,10 +91,9 @@ CREATE TABLE "high_school_table" (
     "yrs_unacceptable" int   NOT NULL,
     "rating" varchar(20)   NOT NULL,
 	"year" int   NOT NULL,
-    CONSTRAINT "pk_high_school_table" PRIMARY KEY (
-        "campus_number"
-    )
-);
+	PRIMARY KEY ("campus_number"),
+    FOREIGN KEY (campus_number) REFERENCES school_rating (campus_number)
+)
 
 SELECT * FROM high_school_table;
 
