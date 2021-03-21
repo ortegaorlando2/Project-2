@@ -2,9 +2,11 @@
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/DK2yeX
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
-DROP TABLE IF EXIST mls;
-DROP TABLE IF EXIST school_rating;
-DROP TABLE IF EXIST junction_table;
+DROP TABLE IF EXISTS mls;
+DROP TABLE IF EXISTS school_rating;
+DROP TABLE IF EXISTS junction_table;
+DROP TABLE IF EXISTS elementary_table;
+DROP TABLE IF EXISTS high_school_table;
 
 CREATE TABLE "mls" (
     "mls" int   NOT NULL,
@@ -68,5 +70,35 @@ REFERENCES "mls" ("mls");
 
 ALTER TABLE "junction_table" ADD CONSTRAINT "fk_junction_table_campus_number" FOREIGN KEY("campus_number")
 REFERENCES "school_rating" ("campus_number");
+
+CREATE TABLE "elementary_table" (
+    "campus_number" int   NOT NULL,
+    "elementary" varchar(50)   NOT NULL,
+    "district" varchar(50)   NOT NULL,
+    "yrs_unacceptable" int   NOT NULL,
+    "rating" varchar(20)   NOT NULL,
+	"year" int   NOT NULL,
+    CONSTRAINT "pk_elementary_table" PRIMARY KEY (
+        "campus_number"
+     )
+);
+
+SELECT * FROM elementary_table;
+
+CREATE TABLE "high_school_table" (
+    "campus_number" int   NOT NULL,
+    "high_school" varchar(50)   NOT NULL,
+    "district" varchar(50)   NOT NULL,
+    "yrs_unacceptable" int   NOT NULL,
+    "rating" varchar(20)   NOT NULL,
+	"year" int   NOT NULL,
+    CONSTRAINT "pk_high_school_table" PRIMARY KEY (
+        "campus_number"
+    )
+);
+
+SELECT * FROM high_school_table;
+
+
 
 
