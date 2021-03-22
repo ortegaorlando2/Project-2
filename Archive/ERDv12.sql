@@ -37,7 +37,7 @@ CREATE TABLE "mls" (
     "area" varchar(25)   NOT NULL,
     "dom" int   NOT NULL,
     "cdom" int   NOT NULL,
-    "list_date" varchar(25)   NOT NULL,
+    "list_date" DATE DEFAULT ('now'::text)::date NOT NULL,
 	"full_address" varchar (250) NOT NULL,
 	"latitude" float NOT NULL,
 	"longitude" float NOT NULL,
