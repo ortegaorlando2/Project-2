@@ -37,7 +37,7 @@ CREATE TABLE "mls" (
     "area" varchar(25)   NOT NULL,
     "dom" int   NOT NULL,
     "cdom" int   NOT NULL,
-    "list_date" DATE DEFAULT ('now'::text)::date NOT NULL,
+    "list_date" varchar(25)   NOT NULL,
 	"full_address" varchar (250) NOT NULL,
 	"latitude" float NOT NULL,
 	"longitude" float NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE "school_rating" (
     "district" varchar(50)   NOT NULL,
     "yrs_unacceptable" int   NOT NULL,
     "rating" varchar(20)   NOT NULL,
-    "rating_yr" varchar(4)   NOT NULL,
+    "year" int   NOT NULL,
     CONSTRAINT "pk_school_rating" PRIMARY KEY (
         "campus_number"
      )

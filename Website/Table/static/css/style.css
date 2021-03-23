@@ -1,0 +1,33 @@
+    h1 {
+        text-align: center;
+        background-color: rgb(223, 235, 234);
+        color: red;
+      }
+      
+      h2 {
+        background-color: rgb(25, 236, 236);
+        color: black;
+      }
+      
+      h3 {
+        color: rgb(19, 21, 173);
+      }
+      
+      img {
+        box-shadow: 10px 10px 5px black;
+      }
+      
+      section {
+        background-color: #000;
+        color: deeppink
+      }
+      
+      p {
+        font-size: 15px;
+        color: gray;
+      }
+      
+      ul {
+        border-style: solid;
+        color: gray;
+      }
