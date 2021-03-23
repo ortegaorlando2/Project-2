@@ -81,7 +81,7 @@ CREATE TABLE "elementary_table" (
     "district" varchar(50)   NOT NULL,
     "yrs_unacceptable" int   NOT NULL,
     "rating" varchar(20)   NOT NULL,
-	"year" int   NOT NULL,
+	"rating_yr" int   NOT NULL,
 	PRIMARY KEY ("campus_number"),
     FOREIGN KEY (campus_number) REFERENCES school_rating (campus_number)
 );
@@ -94,7 +94,7 @@ CREATE TABLE "high_school_table" (
     "district" varchar(50)   NOT NULL,
     "yrs_unacceptable" int   NOT NULL,
     "rating" varchar(20)   NOT NULL,
-	"year" int   NOT NULL,
+	"rating_yr" int   NOT NULL,
 	PRIMARY KEY ("campus_number"),
     FOREIGN KEY (campus_number) REFERENCES school_rating (campus_number)
 )
