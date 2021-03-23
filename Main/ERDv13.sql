@@ -67,7 +67,7 @@ CREATE TABLE "school_rating" (
     "district" varchar(50)   NOT NULL,
     "yrs_unacceptable" int   NOT NULL,
     "rating" varchar(20)   NOT NULL,
-    "rating_yr" varchar(4)   NOT NULL,
+    "rating_yr" int   NOT NULL,
     CONSTRAINT "pk_school_rating" PRIMARY KEY (
         "campus_number"
      )
