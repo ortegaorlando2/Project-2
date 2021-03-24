@@ -1,0 +1,11 @@
+Flask
+Jinja2
+numpy
+pandas
+psycopg2
+psycopg2-binary
+python
+SQLAlchemy
+geojson
+JavaScript
+Flask-SQLAlchemy
