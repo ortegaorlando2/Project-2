@@ -217,51 +217,47 @@ d3.json(queryUrl).then(data => {
         // Load in geojson data
         let geoData = "static/data/elem_heatmap.geojson";
 
-        
-
-        // let lat = features.geometry.coordinates[1];
-        // let lng = features.geometry.coordinates[0]
 
         // Grab data with d3  //https://www.technbuzz.com/2020/06/28/add-leaflet-markers-popup-and-circle/
         d3.json(geoData).then(geoData => {
 
             function schoolMap(){
 
-            let circleA = L.circle({
+            let circleA = L.circleMarker({
                 color: "green",
                 fillColor: "green",
                 fillOpacity: 0.5,
                 radius: 250
-            })
-            let circleB = L.circle({
+            });
+            let circleB = L.circleMarker({
                 color: "yellow",
                 fillColor: "yellow",
                 fillOpacity: 0.5,
                 radius: 50
-            })
-            let circleC = L.circle({
+            });
+            let circleC = L.circleMarker({
                 color: "orange",
                 fillColor: "orange",
                 fillOpacity: 0.5,
                 radius: 50
-            })
-            let circleD = L.circle({
+            });
+            let circleD = L.circleMarker({
                 color: "pink",
                 fillColor: "pink",
                 fillOpacity: 0.5,
                 radius: 50
-            })
-            let circleF = L.circle({
+            });
+            let circleF = L.circleMarker({
                 color: "red",
                 fillColor: "red",
                 fillOpacity: 0.5,
                 radius: 50
-            })
+            });
         
         // let home = features.geometry.coordinates;
-        // console.log(geoData.feature)
+        console.log(geoData.feature)
 
-        // console.log(geoData.features['properties'])
+        console.log(geoData.features['properties'])
 
         layers.six = L.geoJson(geoData, {
             //"A" rated elementary school
