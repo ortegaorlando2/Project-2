@@ -1,4 +1,3 @@
-
 // Store our API endpoint inside queryUrl
 let queryUrl = "static/data/final_HAR_df.geojson";
 
@@ -7,7 +6,7 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// Perform a GET request to the query URL
+// Perform a GET request to the queryURL
 d3.json(queryUrl).then(data => {
 
     // Sending our homes layer to the createMap function
@@ -38,54 +37,54 @@ d3.json(queryUrl).then(data => {
             "Light Map": lightmap
         };
 
-        //Attribution: "https://www.flaticon.com/authors/becris" 
+        //Attribution of basic icon: "https://www.flaticon.com/authors/becris" 
         // Custom markers for home location
         var homeIcon = L.icon({
             iconUrl: 'Images/home.PNG',
-            
-            iconSize:     [15, 15], // size of the icon
-            iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-            popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
-        }); 
+
+            iconSize: [15, 15], // size of the icon
+            iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -10] // point from which the popup should open relative to the iconAnchor
+        });
 
         var purpleIcon = L.icon({
             iconUrl: 'Images/purple.jpeg',
-            
-            iconSize:     [15, 15], // size of the icon
-            iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-            popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
-        }); 
+
+            iconSize: [15, 15], // size of the icon
+            iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -10] // point from which the popup should open relative to the iconAnchor
+        });
 
         var blueIcon = L.icon({
             iconUrl: 'Images/blue.jpeg',
-            
-            iconSize:     [15, 15], // size of the icon
-            iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-            popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
-        }); 
+
+            iconSize: [15, 15], // size of the icon
+            iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -10] // point from which the popup should open relative to the iconAnchor
+        });
 
         var greenIcon = L.icon({
             iconUrl: 'Images/green.jpeg',
-            
-            iconSize:     [15, 15], // size of the icon
-            iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-            popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
+
+            iconSize: [15, 15], // size of the icon
+            iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -10] // point from which the popup should open relative to the iconAnchor
         });
-        
+
         var yellowIcon = L.icon({
             iconUrl: 'Images/yellow.jpeg',
-            
-            iconSize:     [15, 15], // size of the icon
-            iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-            popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
+
+            iconSize: [15, 15], // size of the icon
+            iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -10] // point from which the popup should open relative to the iconAnchor
         });
 
         var pinkIcon = L.icon({
             iconUrl: 'Images/pink.jpeg',
-            
-            iconSize:     [15, 15], // size of the icon
-            iconAnchor:   [7, 7], // point of the icon which will correspond to marker's location
-            popupAnchor:  [0, -10] // point from which the popup should open relative to the iconAnchor
+
+            iconSize: [15, 15], // size of the icon
+            iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -10] // point from which the popup should open relative to the iconAnchor
         });
 
 
@@ -99,7 +98,7 @@ d3.json(queryUrl).then(data => {
             five: new L.LayerGroup(),
             six: new L.LayerGroup()
         };
-        
+
 
         // Initialize all of the LayerGroups
         layers.one = L.geoJson(data, {
@@ -107,8 +106,8 @@ d3.json(queryUrl).then(data => {
                 return (feature.properties.list_price <= 250000);
             },
 
-            pointToLayer: function(feature, latlng) {
-                return L.marker(latlng, {icon: purpleIcon});
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, { icon: purpleIcon });
             },
 
             // Creates popup
@@ -119,8 +118,11 @@ d3.json(queryUrl).then(data => {
                     feature.properties.full_address +
                     '</h3><hr><p>' +
                     '$' +
-                    numberWithCommas(feature.properties.list_price)
-                ) + '</p>'
+                    numberWithCommas(feature.properties.list_price) + ' / ' +
+                    feature.properties.bedrooms + ' bedrooms' + ' / ' +
+                    feature.properties.total_baths + ' baths' + ' / ' +
+                    'MLS# ' + feature.properties.mls +
+                    '</p>')
             }
         })
 
@@ -132,8 +134,8 @@ d3.json(queryUrl).then(data => {
                 )
             },
 
-            pointToLayer: function(feature, latlng) {
-                return L.marker(latlng, {icon: blueIcon});
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, { icon: blueIcon });
             },
 
             onEachFeature: function (feature, layer) {
@@ -142,8 +144,11 @@ d3.json(queryUrl).then(data => {
                     feature.properties.full_address +
                     '</h3><hr><p>' +
                     '$' +
-                    numberWithCommas(feature.properties.list_price)
-                ) + '</p>'
+                    numberWithCommas(feature.properties.list_price) + ' / ' +
+                    feature.properties.bedrooms + ' bedrooms' + ' / ' +
+                    feature.properties.total_baths + ' baths' + ' / ' +
+                    'MLS# ' + feature.properties.mls +
+                    '</p>')
             }
         })
 
@@ -155,8 +160,8 @@ d3.json(queryUrl).then(data => {
                 )
             },
 
-            pointToLayer: function(feature, latlng) {
-                return L.marker(latlng, {icon: greenIcon});
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, { icon: greenIcon });
             },
 
             onEachFeature: function (feature, layer) {
@@ -165,8 +170,11 @@ d3.json(queryUrl).then(data => {
                     feature.properties.full_address +
                     '</h3><hr><p>' +
                     '$' +
-                    numberWithCommas(feature.properties.list_price)
-                ) + '</p>'
+                    numberWithCommas(feature.properties.list_price) + ' / ' +
+                    feature.properties.bedrooms + ' bedrooms' + ' / ' +
+                    feature.properties.total_baths + ' baths' + ' / ' +
+                    'MLS# ' + feature.properties.mls +
+                    '</p>')
             }
         })
 
@@ -178,8 +186,8 @@ d3.json(queryUrl).then(data => {
                 )
             },
 
-            pointToLayer: function(feature, latlng) {
-                return L.marker(latlng, {icon: yellowIcon});
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, { icon: yellowIcon });
             },
 
             onEachFeature: function (feature, layer) {
@@ -188,8 +196,11 @@ d3.json(queryUrl).then(data => {
                     feature.properties.full_address +
                     '</h3><hr><p>' +
                     '$' +
-                    numberWithCommas(feature.properties.list_price)
-                ) + '</p>'
+                    numberWithCommas(feature.properties.list_price) + ' / ' +
+                    feature.properties.bedrooms + ' bedrooms' + ' / ' +
+                    feature.properties.total_baths + ' baths' + ' / ' +
+                    'MLS# ' + feature.properties.mls +
+                    '</p>')
             }
         })
 
@@ -198,8 +209,8 @@ d3.json(queryUrl).then(data => {
                 return (feature.properties.list_price >= 1000000);
             },
 
-            pointToLayer: function(feature, latlng) {
-                return L.marker(latlng, {icon: pinkIcon});
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, { icon: pinkIcon });
             },
 
             onEachFeature: function (feature, layer) {
@@ -208,126 +219,119 @@ d3.json(queryUrl).then(data => {
                     feature.properties.full_address +
                     '</h3><hr><p>' +
                     '$' +
-                    numberWithCommas(feature.properties.list_price)
-                ) + '</p>'
+                    numberWithCommas(feature.properties.list_price) + ' / ' +
+                    feature.properties.bedrooms + ' bedrooms' + ' / ' +
+                    feature.properties.total_baths + ' baths' + ' / ' +
+                    'MLS# ' + feature.properties.mls +
+                    '</p>')
             }
         })
 
-        //********************************************************************************** */
-        // Load in geojson data
+        // Load in geojson data for School Quality layer
         let geoData = "static/data/elem_heatmap.geojson";
 
+        // Perform a GET request to the geoData URL  
+        d3.json(geoData).then(schooldata => {
 
-        // Grab data with d3  //https://www.technbuzz.com/2020/06/28/add-leaflet-markers-popup-and-circle/
-        d3.json(geoData).then(geoData => {
+            // Sending our school layer to the schoolMap function
+            schoolMap();
+            mapme();
 
-            function schoolMap(){
+            function schoolMap() {
 
-            let circleA = L.circleMarker({
-                color: "green",
-                fillColor: "green",
-                fillOpacity: 0.5,
-                radius: 250
+                // Declare and define circle markers for school rating
+                let circleStyle = {};
+                circleStyle.A = {
+                    color: "green",
+                    fillColor: "green",
+                    opacity: 0.5,
+                    radius: 250,
+                    weight: 0
+                };
+                circleStyle.B = {
+                    color: "yellow",
+                    fillColor: "yellow",
+                    fillOpacity: 0.5,
+                    radius: 250,
+                    weight: 0
+                };
+                circleStyle.C = {
+                    color: "orange",
+                    fillColor: "orange",
+                    fillOpacity: 0.5,
+                    radius: 250,
+                    weight: 0
+                };
+                circleStyle.D = {
+                    color: "pink",
+                    fillColor: "pink",
+                    fillOpacity: 0.5,
+                    radius: 250,
+                    weight: 0
+                };
+                circleStyle.F = {
+                    color: "red",
+                    fillColor: "red",
+                    fillOpacity: 0.5,
+                    radius: 250,
+                    weight: 0
+                };
+
+
+
+                layers.six = L.geoJson(schooldata, {
+
+                    // call "features" of geojson file
+                    filter: function (feature, layer) {
+
+                        return schooldata.features;
+                    },
+
+                    pointToLayer: function (feature, latlng) {
+                        let rating = feature.properties.rating;
+                        return L.circle(latlng, circleStyle[rating]); // Returning circlestyle based on letter
+                    },
+
+                })
+            }
+        });
+
+
+        function mapme() {
+
+            // Create an overlays object to add to the layer control
+            let overlayMaps = {
+                "Up to $250K - purple": layers.one,
+                "$250K - $500K- blue": layers.two,
+                "$500K - $750K - green": layers.three,
+                "$750K - $1M - yellow": layers.four,
+                "Over $1M - red": layers.five,
+                "School Quality": layers.six
+            };
+
+            // Create our map, giving it the streetmap and homes layers to display on load
+            let myMap = L.map("map", {
+                center: [
+                    29.7389278, -95.3651312
+                ],
+                zoom: 13,
+                layers: [
+                    streetmap,
+                    layers.one,
+                    layers.two,
+                    layers.three,
+                    layers.four,
+                    layers.five
+                ]
             });
-            let circleB = L.circleMarker({
-                color: "yellow",
-                fillColor: "yellow",
-                fillOpacity: 0.5,
-                radius: 50
-            });
-            let circleC = L.circleMarker({
-                color: "orange",
-                fillColor: "orange",
-                fillOpacity: 0.5,
-                radius: 50
-            });
-            let circleD = L.circleMarker({
-                color: "pink",
-                fillColor: "pink",
-                fillOpacity: 0.5,
-                radius: 50
-            });
-            let circleF = L.circleMarker({
-                color: "red",
-                fillColor: "red",
-                fillOpacity: 0.5,
-                radius: 50
-            });
-        
-        // let home = features.geometry.coordinates;
-        console.log(geoData.feature)
 
-        console.log(geoData.features['properties'])
+            // Create a layer control
+            // Pass in our baseMaps and overlayMaps
+            // Add the layer control to the map
+            L.control.layers(baseMaps, overlayMaps, {
+                collapsed: false
+            }).addTo(myMap);
 
-        layers.six = L.geoJson(geoData, {
-            //"A" rated elementary school
-            
-                filter: function (feature, layer) {
-                    return (feature.properties.rating = "A")                    
-                },
-
-                
-
-                pointToLayer: function(feature, latlng) {
-                    return L.circle(latlng, {icon: circleA});
-                }
-            // //"B" rated elementary school
-            //     filter: function (feature, layer) {
-            //         return (feature.properties.rating = "B");
-            //     },
-                    
-            // //"C" rated elementary school
-            //     filter: function (feature, layer) {
-            //         return (feature.properties.rating = "C");
-            //     },
-            // //"D" rated elementary school
-            //     filter: function (feature, layer) {
-            //         return (feature.properties.rating = "D");
-            //     },
-            // //"F" rated elementary school
-            //     filter: function (feature, layer) {
-            //         return (feature.properties.rating = "F");
-            //     }
-
-        })
-    }});
-
-    //**************************************************************************** */   
-    
-
-    //*********************************************************************************** */
-    // Create an overlays object to add to the layer control
-    let overlayMaps = {
-        "Up to $250K - purple": layers.one,
-        "$250K - $500K- blue": layers.two,
-        "$500K - $750K - green": layers.three,
-        "$750K - $1M - yellow": layers.four,
-        "Over $1M - red": layers.five,
-        "School Quality": layers.six
+        } // End mapme function
     };
-
-    // Create our map, giving it the streetmap and homes layers to display on load
-    let myMap = L.map("map", {
-        center: [
-            29.7389278, -95.3651312
-        ],
-        zoom: 13,
-        layers: [
-            streetmap,
-            layers.one,
-            layers.two,
-            layers.three,
-            layers.four,
-            layers.five
-        ]
-    });
-
-    // Create a layer control
-    // Pass in our baseMaps and overlayMaps
-    // Add the layer control to the map
-    L.control.layers(baseMaps, overlayMaps, {
-        collapsed: false
-    }).addTo(myMap);
-};
-
 });
