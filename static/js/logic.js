@@ -227,39 +227,6 @@ d3.json(queryUrl).then(data => {
             }
         })
 
-        //**************************************************************** */
-    /*Home Legend specific*/
-    var legend = L.control({ position: "topright" });
-
-    legend.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "legend");
-        div.innerHTML += "<h4>Home Prices</h4>";
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/purple.jpeg);background-repeat: no-repeat;"></i><span>Up to $250K</span><br>';
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/blue.jpeg);background-repeat: no-repeat;"></i><span>$250K - $500K</span><br>';
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/green.jpeg);background-repeat: no-repeat;"></i><span>$500K - $750K</span><br>';
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/yellow.jpeg);background-repeat: no-repeat;"></i><span>$750K - $1M</span><br>';
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/pink.jpeg);background-repeat: no-repeat;"></i><span>Over $1M</span><br>';
-        
-    return div;
-    };
-
-    /*School Legend specific*/
-    var legendSchool = L.control({ position: "topright" });
-
-    legendSchool.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "legendSchool");
-        div.innerHTML += "<h4>School Rating</h4>";
-        div.innerHTML += '<i class="icon"  style="background-image: url(Images/A.jpg);background-repeat: no-repeat;"></i><span>"A" rating</span><br>';
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/B.jpg);background-repeat: no-repeat;"></i><span>"B" rating</span><br>';
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/C.jpg);background-repeat: no-repeat;"></i><span>"C" rating</span><br>';
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/D.jpg);background-repeat: no-repeat;"></i><span>"D" rating</span><br>';
-        div.innerHTML += '<i class="icon" style="background-image: url(Images/F.jpg);background-repeat: no-repeat;"></i><span>"F" rating</span><br>';
-
-    return div;
-    };
-
-        //**************************************************************** */
-
         // Load in geojson data for School Quality layer
         let geoData = "static/data/elem_heatmap.geojson";
 
@@ -276,46 +243,47 @@ d3.json(queryUrl).then(data => {
                 let circleStyle = {};
                 circleStyle.A = {
                     color: "green",
-                    fillColor: "lightgreen",
-                    fillOpacity: 0.2,
+                    fillColor: "green",
+                    opacity: 0.5,
                     radius: 250,
                     weight: 0
                 };
                 circleStyle.B = {
-                    color: "blue",
-                    fillColor: "lightblue",
-                    fillOpacity: 0.3,
+                    color: "yellow",
+                    fillColor: "yellow",
+                    fillOpacity: 0.5,
                     radius: 250,
                     weight: 0
                 };
                 circleStyle.C = {
-                    color: "yellow",
-                    fillColor: "yellow",
-                    fillOpacity: 0.2,
+                    color: "orange",
+                    fillColor: "orange",
+                    fillOpacity: 0.5,
                     radius: 250,
                     weight: 0
                 };
                 circleStyle.D = {
                     color: "pink",
                     fillColor: "pink",
-                    fillOpacity: 0.2,
+                    fillOpacity: 0.5,
                     radius: 250,
                     weight: 0
                 };
                 circleStyle.F = {
                     color: "red",
                     fillColor: "red",
-                    fillOpacity: 0.2,
+                    fillOpacity: 0.5,
                     radius: 250,
                     weight: 0
                 };
 
 
-                // School Quality layer - mimics a heatmap based on school rating
+
                 layers.six = L.geoJson(schooldata, {
 
                     // call "features" of geojson file
                     filter: function (feature, layer) {
+
                         return schooldata.features;
                     },
 
@@ -330,16 +298,14 @@ d3.json(queryUrl).then(data => {
 
 
         function mapme() {
-            //<img src="Images/purple.jpeg">  
-            //var purpleIcon = 'Images/purple.jpeg'
 
             // Create an overlays object to add to the layer control
             let overlayMaps = {
-                "Up to $250K": layers.one,
-                "$250K - $500K": layers.two,
-                "$500K - $750K": layers.three,
-                "$750K - $1M": layers.four,
-                "Over $1M": layers.five,
+                "Up to $250K - purple": layers.one,
+                "$250K - $500K- blue": layers.two,
+                "$500K - $750K - green": layers.three,
+                "$750K - $1M - yellow": layers.four,
+                "Over $1M - red": layers.five,
                 "School Quality": layers.six
             };
 
@@ -362,16 +328,10 @@ d3.json(queryUrl).then(data => {
             // Create a layer control
             // Pass in our baseMaps and overlayMaps
             // Add the layer control to the map
-            L.control.layers(baseMaps, overlayMaps,{
+            L.control.layers(baseMaps, overlayMaps, {
                 collapsed: false
             }).addTo(myMap);
 
-            // Creating scale control and adding scale to map
-            L.control.scale(position = 'topleft').addTo(myMap);
-
-            legend.addTo(myMap);
-            legendSchool.addTo(myMap);
         } // End mapme function
     };
 });
-
