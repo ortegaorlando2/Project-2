@@ -35,6 +35,5 @@ To view the JavaScript code: [JavaScript Code](static/js/logic.js)<br>    //Add 
 To view the HTML code: [HTML Code](index.html)<br>                         //Add link location
 To view the CSS code: [CSS code](static/css/style.css)</p>                 //Add link location
 
-<p align="center"><img width="500" height="auto" src="Images/map.PNG"> <img width="500" height="auto" src="Images/satelliteMap.PNG"></p>
 </body>
 </html>
