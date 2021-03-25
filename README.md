@@ -7,7 +7,7 @@ The project provides a visualization of GeoJSON real estate data utilizing Leafl
 Data was sourced from the Houston Association of REALTORS® and downloaded as a .csv.<a href="https://www.HAR.com"> Visit HAR.</a>
 
 Real Estate data lends itself naturally to maps and the downloaded data required transformation in Python and Jupyter Notebook to obtain a list of full addresses suitable for geocoding.  The geocoding was performed in Jupyter Notebook using Geopy and is a hour+ run. The code is commented out to allow code blocks to run in a reasonable time frame. Once geocoded the dataframe was saved as [a clean .csv file.](static/data/final_HAR_df.csv)<br> was converted to a GeoJSON file.  
-<p align="center"><img style="border:3px solid black;" width="500" height="auto" src="Images/geopy_code.PNG">
+<p align="center"><img style= "width="500"; height="auto";border:3px solid black;" src="Images/geopy_code.PNG">
   
 The code as viewed in a JSON viewer:
 <p align="center"><img width="500" height="auto" src="Images/JSON_viewer.PNG">
