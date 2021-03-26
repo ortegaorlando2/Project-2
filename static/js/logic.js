@@ -1,5 +1,5 @@
 // Store our API endpoint inside queryUrl
-let queryUrl = "static/data/final_HAR_df.geojson";
+let queryUrl = "static/data/HAR.geojson";
 
 // Helper function to add commas to List Price popup
 function numberWithCommas(x) {
