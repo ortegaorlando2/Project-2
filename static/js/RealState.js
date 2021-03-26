@@ -66,7 +66,7 @@ d3.json(link).then(function(data) {
   dict_i["address"]= full_address
   dict_i["zip"]= zip
   dict_i["subdivision"]= subdivision
-  dict_i["Price"]= parseInt(list_price)
+  dict_i["Price"]= list_price
   dict_i["elementary"]= elementary
   dict_i["high_school"]= high_school
   
@@ -79,14 +79,14 @@ d3.json(link).then(function(data) {
 
 
   //-------------IMPORT DATA TABLE-------------------------
-    //select the table inside html
-    d3.select('.table')
-    //Assign this table to a D3 element for manipulation
-    let tableElement = d3.select('.table')
-    //change the table format to something more attractive
-    tableElement.classed('table-striped', true)
-    //select the body of the html table
-    let tbodyElem = tableElement.select('tbody');
+  //select the table inside html
+  d3.select('.table')
+  //Assign this table to a D3 element for manipulation
+  let tableElement = d3.select('.table')
+  //change the table format to something more attractive
+  tableElement.classed('table-striped', true)
+  //select the body of the html table
+  let tbodyElem = tableElement.select('tbody');
 
 
 
@@ -125,7 +125,7 @@ d3.json(link).then(function(data) {
 
   // Create event handlers 
   buttonA.on("click", runEnter1);
-  form1.on("submit", runEnter1);
+  form1.on("submit",runEnter1);
   buttonB.on("click", runEnter2)
   form2.on("submit", runEnter2);
   buttonC.on("click", runEnter3);
@@ -141,16 +141,31 @@ d3.json(link).then(function(data) {
   let inputElement = d3.select("#chaseSearcher"); 
   // Get the value property of the input element
   let inputValue = inputElement.property("value");
-  let inputValueint = parseInt(inputValue)
+  inputValuestrg = inputValue.toString();
+  compare = dmy(inputValuestrg)
 
-  console.log(inputValueint)
-  let maxPrice = inputValueint+inputValueint*0.25
-  let minPrice = inputValueint-inputValueint*0.25
-  console.log(maxPrice)
-  //console.log(RScase)
+
+  function dmy(inputValuestrg) {
+    var str = inputValuestrg
+    var y = str.substring(0,4);
+    var m = str.substring(5,7);
+      if (m.substring(0,1) === '0')
+        {m=m.substring(1,2);}
+    var d = str.substring(8,10);
+      if (d.substring(0,1) === '0')
+        {d=d.substring(1,2);}
+
+    var compare = m+'/'+d+'/'+y 
+    return compare
+  }
+
+
+  console.log(`value ${inputValuestrg}`)
+  console.log(`compare ${compare}`)
+
 
     let filteredData1 = RScase.filter(theones => 
-      theones.Price >= minPrice && theones.Price <= maxPrice); 
+      theones.datetime === compare); 
 
       console.log(filteredData1);
 
@@ -164,18 +179,14 @@ d3.json(link).then(function(data) {
       console.log(tbody1)
 
 
-      //define callback function
-      function processRecord1(row){
-      let item = tbody1.append('tr');
-      Object.values(row).forEach(function(thing){
-      item.append('td').text(thing);});
-    }
-      filteredData1.forEach (processRecord1);
-    }
-
-
-
-
+    //define callback function
+  function processRecord1(row){
+    let item = tbody1.append('tr');
+    Object.values(row).forEach(function(thing){
+    item.append('td').text(thing);});
+  }
+  filteredData1.forEach (processRecord1);
+  }
 
   function runEnter2(event) {
 
@@ -256,7 +267,7 @@ d3.json(link).then(function(data) {
   console.log(inputValue);
 
     let filteredData4 = RScase.filter(theones => 
-      theones.zip === inputValue);   
+      theones.shape === inputValue);   
 
     console.log(filteredData4);  
     
@@ -280,58 +291,3 @@ d3.json(link).then(function(data) {
   // ***************THIS******************************
   }
 )
-
-
-// function runEnter1(event) {
-//   // Prevent the page from refreshing
-//   event.preventDefault();  
-//   // Select the input element and get the raw HTML node
-//   let inputElement = d3.select("#chaseSearcher"); 
-//   // Get the value property of the input element
-//   let inputValue = inputElement.property("value");
-//   inputValuestrg = inputValue.toString();
-//   compare = dmy(inputValuestrg)
-
-
-//   function dmy(inputValuestrg) {
-//     var str = inputValuestrg
-//     var y = str.substring(0,4);
-//     var m = str.substring(5,7);
-//       if (m.substring(0,1) === '0')
-//         {m=m.substring(1,2);}
-//     var d = str.substring(8,10);
-//       if (d.substring(0,1) === '0')
-//         {d=d.substring(1,2);}
-
-//     var compare = m+'/'+d+'/'+y 
-//     return compare
-//   }
-
-
-//   console.log(`value ${inputValuestrg}`)
-//   console.log(`compare ${compare}`)
-
-
-//     let filteredData1 = RScase.filter(theones => 
-//       theones.datetime === compare); 
-
-//       console.log(filteredData1);
-
-    
-//       // d3.select('.table')
-//       tableElement1=d3.select("#Subset")
-//       tableElement1.classed('table-striped', true)
-//       let tbody1 = tableElement1.select('tbody')
-//       tbody1.html("")
-//       console.log(tableElement1)
-//       console.log(tbody1)
-
-
-//       //define callback function
-//     function processRecord1(row){
-//       let item = tbody1.append('tr');
-//       Object.values(row).forEach(function(thing){
-//       item.append('td').text(thing);});
-//     }
-//     filteredData1.forEach (processRecord1);
-//     }

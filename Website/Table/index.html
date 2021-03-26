@@ -8,30 +8,42 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <link rel="stylesheet" href="static/css/style.css">
-    <style>.split {height: 15%; width: 50%; position: absolute; z-index: 1; top: auto;
+    <style>.split {height: 18%; width: 50%; position: absolute; z-index: 1; top: auto;
       overflow-x: hidden; padding-top: 5%;}
-      .left {left: 0; background-color: red;}
-      .right {right: 0; background-color: red;}
+      .left {left: 0; background-color: rgb(21, 39, 119); color:white; text-align: left}
+      .right {right: 0; background-color: rgb(21, 39, 119); color:white; text-align: right}
       .centered {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;}
     </style>
     <style>
-      * {
-        box-sizing: border-box;
+      body, h1, h2, h3, h4, h5, h6  {
+        font-family: Arial;
       }
-      
+      </style>
+      <style>
+      * {box-sizing: border-box;}     
       .column {
         float: left;
         width: 33.33%;
         padding: 5px;
-      }
-      
+      }      
       /* Clearfix (clear floats) */
-      .row::after {
-        content: "";
-        clear: both;
-        display: table;
-      }
+      .row::after { content: ""; clear: both; display: table;}
       </style>
+      <style>
+        #Subset {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;}
+        #Subset td, #Subset th { border: 1px solid #ddd;  padding: 8px;}        
+        #Subset tr:nth-child(even){background-color: #1a60ca;}        
+        #Subset tr:hover {background-color: rgb(184, 196, 25);}
+        #Subset th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #1a146e;
+          color: white;}
+        </style>
 </head>
 <style>body {background-color: rgb(210, 214, 226);}</style>
 
@@ -39,7 +51,7 @@
     <nav>
         <h1 style="background-color: rgb(18, 15, 20)">
         YOUR HOME SEARCH RESULTS</h1>
-        <div class="row">
+        <!-- <div class="row">
           <div class="column">
             <img src="home1.jfif" style="width:100%">
           </div>
@@ -49,41 +61,37 @@
           <div class="column">
             <img src="home2.jfif" style="width:100%">
           </div>
-        </div>
+        </div> -->
 
         
         <div class="text1"><h3>In this page we will show the results of your search</h3></div>
         <div id="text2"><h3>You can search directly on our map or enter values below</h3></div>
         <div class="sightsGIS" style="background-color: rgb(18, 15, 20)">
-          <a href="https://www.har.com/joinhar"><h2>Houston Association of Realtors (click)</h2></a>
+          <a href="https://www.har.com/joinhar"><h4>Houston Association of Realtors (click)</h4></a>
         </div>
       
         <div class="deeplink">
           <div class="outer">
             <div class="inner" style="background-color: rgb(18, 15, 20)">
-              <a href="https://www.houstontx.gov/abouthouston/education.html"><h2>Education Houston Resources (click)</h2></a>
+              <a href="https://www.houstontx.gov/abouthouston/education.html"><h4>Education Houston Resources (click)</h4></a>
             </div>
           </div>
         </div>
     
         <div class="split left">
-
                 <div class="centered">
-                  <h3>Looking for a home?</h3>
-                  <button id="Alien">Yes</button>
-                  <button id="NoAlien">No</button>
-                  
+                  <h6>Looking for an Elementary School?</h6>
+                  <button id="Home">Yes</button>
+                  <button id="NoHome">No</button>                  
                 </div>  
 
         </div>
 
         <div class="split right">
-
                 <div class="centered">
-                  <h3>Looking for a school?</h3>
-                  <button type="button" id="newUFO">Yes</button>
-                  <button type="button" id="NoUFO">No</button>
-                  
+                  <h6>Looking for a High School?</h6>
+                  <button type="button" id="School">Yes</button>
+                  <button type="button" id="NoSchool">No</button>                  
                 </div>
 
         </div>
@@ -105,9 +113,9 @@
                   <div class="col-md-12">
                     <form id="form1"></form>
                         <div class="form-group">
-                            <h3>Enter Listing Date (MM/DD/YYYY)</h3>
-                            <label for="text101">Input Date and press the button</label>
-                            <input class="form-control" id="chaseSearcher" type="date" name="text-input" placeholder="MM/DD/YYYY"
+                            <h3 style="color:white" >Enter desired price </h3>
+                            <label for="text101">for example: 150000 and press Enter </label>
+                            <input class="form-control" id="chaseSearcher" type="text" name="text-input" placeholder=200000
                             />
                         </div>
                         <button id="buttonA" type="button" class="btn btn-default" style="background-color: rgb(34, 239, 247)">Enter</button>
@@ -119,9 +127,9 @@
                 <div class="col-md-12">
                   <form id="form2">
                       <div class="form-group">
-                          <h3>How many bedrooms?</h3>
-                          <label for="text102">Input a number from 0 to 10</label>
-                          <input class="form-control" id="UFOCity" name="text-input" type="text" placeholder="Houston">
+                          <h3 style="color:white" >Search by Elementary</h3>
+                          <label for="text102">Enter the name of the Elementary here</label>
+                          <input class="form-control" id="S2" name="text-input" type="text" placeholder="BRIARGROVE EL">
                           <!-- <input id="input-field" type="text"> -->
                       </div>
                       <button id="buttonB" type="button" class="btn btn-default" style="background-color: rgb(34, 239, 247)">Enter</button>
@@ -129,15 +137,15 @@
                 </div>
                 </div>
                 <hr>
-                <img src="beecreek.jfif">
+                <!-- <img src="beecreek.jfif"> -->
                 <hr>
                 <div class="row">
                   <div class="col-md-12">
                     <form id="form3">
                         <div class="form-group">
-                            <h3>How many bathrooms?</h3>
-                            <label for="text103">Input a number from 0 to 10</label>
-                            <input class="form-control" id="UFOState" name="text-input" type="text" placeholder="ut">
+                            <h3 style="color:white">Search by High School</h3>
+                            <label for="text103">Enter the name of the High School here</label>
+                            <input class="form-control" id="S3" name="text-input" type="text" placeholder="WISDOM H S">
                             <!-- <input id="input-field" type="text"> -->
                         </div>
                         <button id="buttonC" type="button" class="btn btn-default" style="background-color: rgb(34, 239, 247)">Enter</button>
@@ -152,9 +160,9 @@
                     
                     <form id="form4">
                       <div class="form-group">
-                        <h3>Enter a zipcode</h3>
-                        <label for="text103">click the image to enlarge</label>
-                        <input class="form-control" id="UFOShape" name="text-input" type="text" placeholder="fireball">
+                        <h3 style="color:white">Search by zipcode</h3>
+                        <label for="text104">Enter Zipcode, click the image to see Houston Zipcodes</label>
+                        <input class="form-control" id="S4" name="text-input" type="text" placeholder="77098">
                       </div>
                         <button id="buttonD" type="button" class="btn btn-default" style="background-color: rgb(34, 239, 247)">Enter</button>
                       </form>
@@ -169,14 +177,14 @@
                 
                 <hr>
                 <br>
-                <h1>Filtered Data FROM MAP</h1>
-                <div class="container" style="background-color: rgb(226, 221, 230)">
+                <h1>Filtered Data</h1>
+                <div class="container" style="font-size: 12px; color:white; background-color: rgb(20, 21, 65)">
                   <div class="row1">
                     <div class="col-md-12">
-                      <!-- UFO Selection table-->
-                      <table id="Subset" class="SelectedUFOs table-striped" >
+                      <!-- Homes Selection table-->
+                      <table id="Subset" class="SelectedCriteria" >
                         <thead>
-                          <tr display: table-row>
+                          <tr>
                               <th>mls</th>
                               <th>address</th>
                               <th>zip</th>
@@ -197,7 +205,7 @@
         <div class="container" style="font-size: 8px; color:rgb(41, 39, 34); background-color: rgb(189, 190, 212) ">
             <div class="row">
               <div class="col-md-12" >
-                <table class="UFO table">
+                <table class="Full table">
                   <thead> 
                     <tr>
                         <th>mls</th>
