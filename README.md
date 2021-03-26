@@ -1,5 +1,5 @@
 <html>
-<p align="center"><img width="100%" height="70px" src="Images/header.PNG"></p>            
+<p align="center"><img width="100%" height="60px" src="Images/header.PNG"></p>            
 <body>
 <p>
 The project provides a visualization of GeoJSON real estate data utilizing Leaflet, JavaScript, Mapbox, and deployed utilizing Flask and Heroku.
