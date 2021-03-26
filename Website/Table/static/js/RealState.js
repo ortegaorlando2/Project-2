@@ -93,24 +93,13 @@ d3.json(link).then(function(data) {
 
     //let tbody = d3.select("tbody");
     //define callback function
-    function processRecord(row){
+    function processRecord(row1){
       let item = tbodyElem.append('tr');
-      Object.values(row).forEach(function(thing){ 
+      Object.values(row1).forEach(function(thing){ 
       item.append('td').text(thing);});
     }
 
     lisDict.forEach (processRecord);
-
-  // secondElement={}
-
-  // for (let i=0; i<data.length; i++){
-  // let secondElement = data[i]
-  // secondElement=secondElement.properties;
-  // listDict.push(secondElement)
-  // console.log(listDict)
-  // listDict.forEach (processRecord)
-  // }
-
 
 
   //----------------------------------------
@@ -119,7 +108,7 @@ d3.json(link).then(function(data) {
   // ~~~~~~~~~~~~~~~~FORMS~~~~~~~~~~~~~~~~~~~~
 
   // Assign the data from `data.js` to a descriptive variable
-  let UFOcase = data;
+  let RScase = data;
   let buttonA = d3.select("#buttonA");
   let buttonB = d3.select("#buttonB");
   let buttonC = d3.select("#buttonC");
@@ -129,8 +118,8 @@ d3.json(link).then(function(data) {
   let form3 = d3.select("#form3");
   let form4 = d3.select("#form4");
 
-  for (let i=1; i < length.UFOcase; i++){
-      console.log(UFOcase.datetime).text()}
+  for (let i=1; i < length.RScase; i++){
+      console.log(RScase.datetime).text()}
 
   // Create event handlers 
   buttonA.on("click", runEnter1);
@@ -147,7 +136,7 @@ d3.json(link).then(function(data) {
   // Prevent the page from refreshing
   event.preventDefault();  
   // Select the input element and get the raw HTML node
-  let inputElement = d3.select("#UFOSearcher"); 
+  let inputElement = d3.select("#chaseSearcher"); 
   // Get the value property of the input element
   let inputValue = inputElement.property("value");
   inputValuestrg = inputValue.toString();
@@ -173,17 +162,17 @@ d3.json(link).then(function(data) {
   console.log(`compare ${compare}`)
 
 
-    let filteredData1 = UFOcase.filter(theones => 
+    let filteredData1 = RScase.filter(theones => 
       theones.datetime === compare); 
 
       console.log(filteredData1);
 
     
-    // d3.select('.table')
-    tableElement1=d3.select('#Subset')
-    tableElement1.classed('table-striped', true)
-    let tbody1 = tableElement1.select('tbody')
-    tbody1.html("")
+      // d3.select('.table')
+      tableElement1=d3.select("#Subset")
+      tableElement1.classed('table-striped', true)
+      let tbody1 = tableElement1.select('tbody')
+      tbody1.html("")
       console.log(tableElement1)
       console.log(tbody1)
 
@@ -201,14 +190,14 @@ d3.json(link).then(function(data) {
     // Prevent the page from refreshing
     event.preventDefault();  
     // Select the input element and get the raw HTML node
-    let inputElement = d3.select("#UFOCity"); 
+    let inputElement = d3.select("#Elementary"); 
     // Get the value property of the input element
     let inputValue = inputElement.property("value");
     console.log(`values ${inputValue}`)
 
     console.log(inputValue);
 
-    let filteredData2 = UFOcase.filter(theones => 
+    let filteredData2 = RScase.filter(theones => 
       theones.city === inputValue);
 
       console.log(filteredData2); 
@@ -234,13 +223,13 @@ d3.json(link).then(function(data) {
     // Prevent the page from refreshing
     event.preventDefault();  
     // Select the input element and get the raw HTML node
-    let inputElement = d3.select("#UFOState"); 
+    let inputElement = d3.select("#S3"); 
     // Get the value property of the input element
     let inputValue = inputElement.property("value");
     console.log(`values ${inputValue}`)
   console.log(inputValue);
   
-    let filteredData3 = UFOcase.filter(theones => 
+    let filteredData3 = RScase.filter(theones => 
     theones.state === inputValue); 
     console.log(filteredData3); 
 
@@ -265,14 +254,14 @@ d3.json(link).then(function(data) {
     // Prevent the page from refreshing
     event.preventDefault();  
     // Select the input element and get the raw HTML node
-    let inputElement = d3.select("#UFOShape"); 
+    let inputElement = d3.select("#S4"); 
     // Get the value property of the input element
     let inputValue = inputElement.property("value");
     console.log(`values ${inputValue}`)
 
   console.log(inputValue);
 
-    let filteredData4 = UFOcase.filter(theones => 
+    let filteredData4 = RScase.filter(theones => 
       theones.shape === inputValue);   
 
     console.log(filteredData4);  
