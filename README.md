@@ -6,10 +6,10 @@ The project provides a visualization of GeoJSON real estate data utilizing Leafl
 
 Data was sourced from the Houston Association of REALTORS® and downloaded as a .csv.<a href="https://www.HAR.com"> Visit HAR.</a>
 
-Real Estate data lends itself naturally to maps and the downloaded data required transformation in Python and Jupyter Notebook to obtain a list of full addresses suitable for geocoding.  The geocoding was performed in Jupyter Notebook using Geopy and is a hour+ run. The code is commented out to allow code blocks to run in a reasonable time frame. Once geocoded the dataframe was was converted and saved as a [GeoJSON file](static/data/HAR.csv) and also as a [clean .csv file.](static/data/final_HAR_df.csv)<br> .  
+Real Estate data lends itself naturally to maps and the downloaded data required transformation in Python and Jupyter Notebook to obtain a list of full addresses suitable for geocoding.  The geocoding was performed in Jupyter Notebook using Geopy and is a hour+ run. The code is commented out to allow code blocks to run in a reasonable time frame. Once geocoded the dataframe was was converted and saved as a [GeoJSON file](static/data/HAR.csv) and also as a [clean .csv file.](static/data/final_HAR_df.csv)  
 <p align="center"><kbd><img width="500" height="auto" style= "border:3px solid black;" src="Images/geopy_code.PNG"></kbd>
   
-The code as viewed in a JSON viewer:
+The Geojson file as viewed in a JSON viewer:
 <p align="center"><kbd><img width="500" height="auto" src="Images/JSON_viewer.PNG"></kbd>
   
 The language JavaScript was used to code the primary map.  Using Leaflet the geojson file was read.  Street Map and Light Map layers were coded utilizing mapbox. These two layers are the base layers for the map and the user may choose which view they prefer.  Five layers were produced to create price bands for homes. The user may select one or more of the price bands to populate the map.  
