@@ -25,7 +25,7 @@ A sixth layer was coded to create a quasi heatmap of school quality and density 
 The chart initially loads visualizing a street map view with all home price bands selected. 
 <p align="center"><img width="600" height="auto" src="Images/map.PNG">
 
-
+The same geojson file was used to populate a table that allows the user to filter a list of homes by different metrics, e.g. zip code.
 
 <a href="https://danawoodruff.github.io/Leaflet-challenge/">View GitHub-Page.</a> 
 
