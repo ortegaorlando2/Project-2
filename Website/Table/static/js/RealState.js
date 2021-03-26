@@ -1,8 +1,8 @@
 // Providing some cool links
 
-let sightsGIS= d3.select(".sightsGIS>a").html();
-let myLinkAnchor = d3.select(".inner>a");
-let myLinkAnchorAttribute = myLinkAnchor.attr("href");
+// let sightsGIS= d3.select(".sightsGIS>a").html();
+// let myLinkAnchor = d3.select(".inner>a");
+// let myLinkAnchorAttribute = myLinkAnchor.attr("href");
 
 d3.selectAll("li").style("color", "green");
 
