@@ -108,7 +108,7 @@ d3.json(link).then(function(data) {
   // ~~~~~~~~~~~~~~~~FORMS~~~~~~~~~~~~~~~~~~~~
 
   // Assign the data from `data.js` to a descriptive variable
-  let RScase = data;
+  let RScase = lisDict;
   let buttonA = d3.select("#buttonA");
   let buttonB = d3.select("#buttonB");
   let buttonC = d3.select("#buttonC");
@@ -118,8 +118,10 @@ d3.json(link).then(function(data) {
   let form3 = d3.select("#form3");
   let form4 = d3.select("#form4");
 
-  for (let i=1; i < length.RScase; i++){
-      console.log(RScase.datetime).text()}
+
+
+  // for (let i=1; i < RScase.length; i++){
+  //     console.log(RScase.datetime).text()}
 
   // Create event handlers 
   buttonA.on("click", runEnter1);
@@ -187,10 +189,13 @@ d3.json(link).then(function(data) {
   }
 
   function runEnter2(event) {
+
     // Prevent the page from refreshing
     event.preventDefault();  
     // Select the input element and get the raw HTML node
-    let inputElement = d3.select("#Elementary"); 
+    let inputElement = d3.select("#S2"); 
+    console.log(`Elementary ${inputElement}`)
+
     // Get the value property of the input element
     let inputValue = inputElement.property("value");
     console.log(`values ${inputValue}`)
@@ -198,7 +203,7 @@ d3.json(link).then(function(data) {
     console.log(inputValue);
 
     let filteredData2 = RScase.filter(theones => 
-      theones.city === inputValue);
+      theones.elementary === inputValue);
 
       console.log(filteredData2); 
     
@@ -227,10 +232,10 @@ d3.json(link).then(function(data) {
     // Get the value property of the input element
     let inputValue = inputElement.property("value");
     console.log(`values ${inputValue}`)
-  console.log(inputValue);
+    console.log(inputValue);
   
     let filteredData3 = RScase.filter(theones => 
-    theones.state === inputValue); 
+    theones.high_school === inputValue); 
     console.log(filteredData3); 
 
     let tableElement3 = d3.select('#Subset')
@@ -240,8 +245,8 @@ d3.json(link).then(function(data) {
     let tbody3 = tableElement3.select('tbody')
     tbody3.html("")
 
-  //define callback function
-  function processRecord3(row){
+    //define callback function
+    function processRecord3(row){
     let item = tbody3.append('tr');
     Object.values(row).forEach(function(thing){
     item.append('td').text(thing);});
