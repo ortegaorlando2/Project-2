@@ -1,0 +1,1 @@
+// The javascript code is in static/js
