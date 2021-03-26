@@ -227,6 +227,26 @@ d3.json(queryUrl).then(data => {
             }
         })
 
+        // School Rating Legend
+        var legend = L.control({ position: "topright" });
+
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create("div", "legend");
+            div.innerHTML += "<h5>School Rating</h5>";
+            // div.innerHTML += "<img src='Images/A.jpg' width = 35 /> <span></span><br>";
+            // div.innerHTML += "<img src='Images/B.jpg' width = 35 /> <span></span><br>";
+            // div.innerHTML += "<img src='Images/C.jpg' width = 35 /> <span></span><br>";
+            // div.innerHTML += "<img src='Images/D.jpg' width = 35 /> <span></span><br>";
+            // div.innerHTML += "<img src='Images/F.jpg' width = 35 /> <span></span>";
+            div.innerHTML += '<i class="icon" style="background-image: url(Images/A.jpg);background-repeat: no-repeat;"></i><span>"A" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(Images/B.jpg);background-repeat: no-repeat;"></i><span>"B" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(Images/C.jpg);background-repeat: no-repeat;"></i><span>"C" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(Images/D.jpg);background-repeat: no-repeat;"></i><span>"D" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(Images/F.jpg);background-repeat: no-repeat;"></i><span>"F" rating</span><br>';
+            div.innerHTML += "<h6>Data: TEA.gov</h6>";
+            return div;
+        };
+
         // Load in geojson data for School Quality layer
         let geoData = "static/data/elem_heatmap.geojson";
 
@@ -243,47 +263,46 @@ d3.json(queryUrl).then(data => {
                 let circleStyle = {};
                 circleStyle.A = {
                     color: "green",
-                    fillColor: "green",
-                    opacity: 0.5,
+                    fillColor: "lightgreen",
+                    fillOpacity: 0.2,
                     radius: 250,
                     weight: 0
                 };
                 circleStyle.B = {
-                    color: "yellow",
-                    fillColor: "yellow",
-                    fillOpacity: 0.5,
+                    color: "blue",
+                    fillColor: "lightblue",
+                    fillOpacity: 0.3,
                     radius: 250,
                     weight: 0
                 };
                 circleStyle.C = {
-                    color: "orange",
-                    fillColor: "orange",
-                    fillOpacity: 0.5,
+                    color: "yellow",
+                    fillColor: "yellow",
+                    fillOpacity: 0.2,
                     radius: 250,
                     weight: 0
                 };
                 circleStyle.D = {
                     color: "pink",
                     fillColor: "pink",
-                    fillOpacity: 0.5,
+                    fillOpacity: 0.2,
                     radius: 250,
                     weight: 0
                 };
                 circleStyle.F = {
                     color: "red",
                     fillColor: "red",
-                    fillOpacity: 0.5,
+                    fillOpacity: 0.2,
                     radius: 250,
                     weight: 0
                 };
 
 
-
+                // School Quality layer - mimics a heatmap based on school rating
                 layers.six = L.geoJson(schooldata, {
 
                     // call "features" of geojson file
                     filter: function (feature, layer) {
-
                         return schooldata.features;
                     },
 
@@ -301,11 +320,11 @@ d3.json(queryUrl).then(data => {
 
             // Create an overlays object to add to the layer control
             let overlayMaps = {
-                "Up to $250K - purple": layers.one,
-                "$250K - $500K- blue": layers.two,
-                "$500K - $750K - green": layers.three,
-                "$750K - $1M - yellow": layers.four,
-                "Over $1M - red": layers.five,
+                "<img src='Images/purple.jpeg' width = 15 /> <span>Up to $250K</span>": layers.one,
+                "<img src='Images/blue.jpeg' width = 15 /> <span>$250K - $500K</span>": layers.two,
+                "<img src='Images/green.jpeg' width = 15 /> <span>$500K - $750K</span>": layers.three,
+                "<img src='Images/yellow.jpeg' width = 15 /> <span>$750K - $1M</span>": layers.four,
+                "<img src='Images/pink.jpeg' width = 15 /> <span>$1M+</span>": layers.five,
                 "School Quality": layers.six
             };
 
@@ -332,6 +351,12 @@ d3.json(queryUrl).then(data => {
                 collapsed: false
             }).addTo(myMap);
 
+            // Creating scale control and adding scale to map
+            L.control.scale(position = 'topleft').addTo(myMap);
+
+            legend.addTo(myMap);
+
         } // End mapme function
     };
 });
+
