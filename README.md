@@ -17,7 +17,7 @@ The language JavaScript was used to code the primary map.  Using Leaflet the geo
   
 Custom icons were designed to color the homes of each price band differently.  When clicking on a home a popup displays the home's address, list price, number of bedrooms, and MLS number.
 
-<p align="center"><kbd><img width="360" height="auto" hspace="25" src="Images/popup.PNG"></kbd><kbd><img width="124" height="auto" hspace="25" src="Images/icons.PNG"></kbd></p>
+<p align="center"><kbd><img style="float: left; padding: 0px 15px 0px 0px; "width="360" height="auto" hspace="25" src="Images/popup.PNG"></kbd><kbd><img width="124" height="auto" hspace="25" src="Images/icons.PNG"></kbd></p>
 
 A sixth layer was coded to create a quasi heatmap of school quality and density of homes for sale. When the user activates the button "School Quality" the home locations will produce a circle marker colored to represent the school's rating by the state of Texas. 
 <p align="center"><kbd><img width="600" height="auto" src="Images/schoollayer.PNG"></kbd>
