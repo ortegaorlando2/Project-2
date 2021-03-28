@@ -46,6 +46,7 @@ CREATE TABLE "mls" (
 	"geocode" varchar (250) NOT NULL,
     "elementary" int   NOT NULL,
     "high_school" int   NOT NULL,
+	"rating" varchar (25) NOT NULL,
     CONSTRAINT "pk_mls" PRIMARY KEY (
         "mls"
      )
@@ -103,7 +104,7 @@ CREATE TABLE "high_school_table" (
 
 SELECT * FROM high_school_table;
 
-CREATE TABLE "areaFinal20" (
+CREATE TABLE "areafinal20" (
     "area" varchar(200)   NOT NULL,
     "count_area" int   NOT NULL,
     "min_price" int   NOT NULL,
@@ -113,11 +114,13 @@ CREATE TABLE "areaFinal20" (
 	"area_abbr" varchar(20)   NOT NULL,
     "avg_age" int   NOT NULL,
 	"std_age" int   NOT NULL,
+	PRIMARY KEY ("area"),
+	FOREIGN KEY (area) REFERENCES mls (area)
 );
 
-SELECT * FROM areaFinal20;
+SELECT * FROM areafinal20;
 
-CREATE TABLE "zipFinal20" (
+CREATE TABLE "zipfinal20" (
     "zip" int   NOT NULL,
     "count_zip" int   NOT NULL,
     "min_price" int   NOT NULL,
@@ -126,9 +129,11 @@ CREATE TABLE "zipFinal20" (
 	"std_price" int   NOT NULL,
     "avg_age" int   NOT NULL,
 	"std_age" int   NOT NULL,
+	PRIMARY KEY ("zip"),
+	FOREIGN KEY (zip) REFERENCES mls (zip)
 );
 
-SELECT * FROM zipFinal20;
+SELECT * FROM zipfinal20;
 
 
 

@@ -2,14 +2,16 @@
 -- Link to schema: https://app.quickdatabasediagrams.com/#/d/DK2yeX
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
-DROP TABLE IF EXISTS mls;
-DROP TABLE IF EXISTS school_rating;
+-- DROP TABLE IF EXISTS mls;
+-- DROP TABLE IF EXISTS school_rating;
+-- -- DROP TABLE school_rating CASCADE;
+-- DROP TABLE IF EXISTS junction_table;
+-- DROP TABLE IF EXISTS elementary_table;
 -- DROP TABLE school_rating CASCADE;
-DROP TABLE IF EXISTS junction_table;
-DROP TABLE IF EXISTS elementary_table;
--- DROP TABLE school_rating CASCADE;
-DROP TABLE IF EXISTS high_school_table;
--- DROP TABLE school_rating CASCADE;
+-- DROP TABLE IF EXISTS high_school_table;
+-- -- DROP TABLE school_rating CASCADE;
+-- DROP TABLE IF EXISTS areaFinal20;
+-- DROP TABLE IF EXISTS zipFinal20;
 
 CREATE TABLE "mls" (
     "mls" int   NOT NULL,
@@ -44,6 +46,7 @@ CREATE TABLE "mls" (
 	"geocode" varchar (250) NOT NULL,
     "elementary" int   NOT NULL,
     "high_school" int   NOT NULL,
+	"rating" varchar(25),
     CONSTRAINT "pk_mls" PRIMARY KEY (
         "mls"
      )
@@ -100,7 +103,6 @@ CREATE TABLE "high_school_table" (
 )
 
 SELECT * FROM high_school_table;
-
 
 
 
