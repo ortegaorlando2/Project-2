@@ -1,5 +1,7 @@
-// Store our API endpoint inside queryUrl
-let queryUrl = "static/data/HAR.geojson";
+//Interactive map JS - needs "har.geojson"
+
+//Store our API endpoint inside queryUrl
+let queryUrl = "static/data/har.geojson";
 
 // Helper function to add commas to List Price popup
 function numberWithCommas(x) {
@@ -247,11 +249,9 @@ d3.json(queryUrl).then(data => {
             return div;
         };
 
-        // Load in geojson data for School Quality layer
-        let geoData = "static/data/elem_heatmap.geojson";
 
-        // Perform a GET request to the geoData URL  
-        d3.json(geoData).then(schooldata => {
+        // Perform a GET request to the queryURL  
+        d3.json(queryUrl).then(schooldata => {
 
             // Sending our school layer to the schoolMap function
             schoolMap();
