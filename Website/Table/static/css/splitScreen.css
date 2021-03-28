@@ -1,6 +1,6 @@
 body {
   font-family: Arial;
-  color: white;
+  color: rgb(50, 107, 145);
 }
 
 .split {
@@ -15,12 +15,12 @@ body {
 
 .left {
   left: 0;
-  background-color: #111;
+  background-color:  #1a146e;
 }
 
 .right {
   right: 0;
-  background-color: red;
+  background-color:  #1a146e;
 }
 
 .centered {
@@ -35,4 +35,3 @@ body {
   width: 150px;
   border-radius: 50%;
 }
-</style>
