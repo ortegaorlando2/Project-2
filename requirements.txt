@@ -43,7 +43,6 @@ MarkupSafe==1.1.1
 matplotlib==3.3.2
 mccabe==0.6.1
 mistune==0.8.4
-mkl-random==1.0.2
 mkl-service==2.3.0
 nb-conda-kernels==2.3.1
 nbclient==0.5.1
