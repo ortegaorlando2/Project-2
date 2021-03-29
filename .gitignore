@@ -9,3 +9,4 @@ Main/config.js
 config.py
 Main/config.py
 static/js/config.js
+static\main\secrets.py
