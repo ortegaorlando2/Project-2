@@ -11,8 +11,9 @@ import os
 
 
 # Connect to sql database
-engine = create_engine("postgresql://postgres:(#2020)MagHou@localhost:5432/etl_team5")
-# engine = create_engine("postgresql://{username}:{password}@localhost:5432/etl_team5")
+rds_connection_string = f"{username}:{password}@localhost:5432/etl_team5"
+engine = create_engine(f'postgresql://{rds_connection_string}')
+
 conn=engine.connect()
 
 print('connected')
