@@ -25,21 +25,32 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# create route that renders map.html template
-@app.route("/map")
-def map():
-    return render_template("map.html")
+###########################################
+########### start of map laoding activities
+###########################################
+from datalayer import Datalayer
+db = Datalayer()
 
 # create route that renders map.html template
-@app.route("/orlando")
-def orlado():
-    return render_template("index_orlando.html")        
+@app.route("/data")
+def data():
+
+    mls_df = db.getRawDataFromDB()
+    geojson = db.convertToGeoJSon(mls_df)
+
+    # check name of file being passed to map.html
+    return render_template("map.html",data=jsonify(geojson))
+    # return jsonify(geojson)
 
 # create route that renders map.html template
 @app.route("/scatter")
 def scatter():
     return render_template("index_scatter.html")
 
+# create route that renders index.html template
+@app.route("/map")
+def map():
+    return render_template("map.html")
 
 # 404 error handling
 @app.errorhandler(404)

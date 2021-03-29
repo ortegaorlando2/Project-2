@@ -1,7 +1,15 @@
 //Interactive map JS - needs "har.geojson"
 
-//Store our API endpoint inside queryUrl
-let queryUrl = "static/data/har.geojson";
+// //Store our API endpoint inside queryUrl
+// // use this path when map.index is in root directoryt
+// let queryUrl = "static/data/har.geojson";
+
+// //Store our API endpoint inside queryUrl
+// // use this path when map.index is in template
+let queryUrl = "../static/data/har.geojson";
+
+// C:\Users\troyy\Desktop\Class_Material\TY_Own_work\Project-2_WORKING\Flask_review_working\static\datafile\har.geojson
+// static\datafile\har.geojson
 
 // Helper function to add commas to List Price popup
 function numberWithCommas(x) {
@@ -42,7 +50,7 @@ d3.json(queryUrl).then(data => {
         //Attribution of basic icon: "https://www.flaticon.com/authors/becris" 
         // Custom markers for home location
         var homeIcon = L.icon({
-            iconUrl: 'Images/home.PNG',
+            iconUrl: '../static/Images/home.PNG',
 
             iconSize: [15, 15], // size of the icon
             iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
@@ -50,7 +58,7 @@ d3.json(queryUrl).then(data => {
         });
 
         var purpleIcon = L.icon({
-            iconUrl: 'Images/purple.jpeg',
+            iconUrl: '../static/Images/purple.jpeg',
 
             iconSize: [15, 15], // size of the icon
             iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
@@ -58,7 +66,7 @@ d3.json(queryUrl).then(data => {
         });
 
         var blueIcon = L.icon({
-            iconUrl: 'Images/blue.jpeg',
+            iconUrl: '../static/Images/blue.jpeg',
 
             iconSize: [15, 15], // size of the icon
             iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
@@ -66,7 +74,7 @@ d3.json(queryUrl).then(data => {
         });
 
         var greenIcon = L.icon({
-            iconUrl: 'Images/green.jpeg',
+            iconUrl: '../static/Images/green.jpeg',
 
             iconSize: [15, 15], // size of the icon
             iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
@@ -74,7 +82,7 @@ d3.json(queryUrl).then(data => {
         });
 
         var yellowIcon = L.icon({
-            iconUrl: 'Images/yellow.jpeg',
+            iconUrl: '../static/Images/yellow.jpeg',
 
             iconSize: [15, 15], // size of the icon
             iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
@@ -82,7 +90,7 @@ d3.json(queryUrl).then(data => {
         });
 
         var pinkIcon = L.icon({
-            iconUrl: 'Images/pink.jpeg',
+            iconUrl: '../static/Images/pink.jpeg',
 
             iconSize: [15, 15], // size of the icon
             iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
@@ -240,11 +248,11 @@ d3.json(queryUrl).then(data => {
             // div.innerHTML += "<img src='Images/C.jpg' width = 35 /> <span></span><br>";
             // div.innerHTML += "<img src='Images/D.jpg' width = 35 /> <span></span><br>";
             // div.innerHTML += "<img src='Images/F.jpg' width = 35 /> <span></span>";
-            div.innerHTML += '<i class="icon" style="background-image: url(Images/A.jpg);background-repeat: no-repeat;"></i><span>"A" rating</span><br>';
-            div.innerHTML += '<i class="icon" style="background-image: url(Images/B.jpg);background-repeat: no-repeat;"></i><span>"B" rating</span><br>';
-            div.innerHTML += '<i class="icon" style="background-image: url(Images/C.jpg);background-repeat: no-repeat;"></i><span>"C" rating</span><br>';
-            div.innerHTML += '<i class="icon" style="background-image: url(Images/D.jpg);background-repeat: no-repeat;"></i><span>"D" rating</span><br>';
-            div.innerHTML += '<i class="icon" style="background-image: url(Images/F.jpg);background-repeat: no-repeat;"></i><span>"F" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(../static/Images/A.jpg);background-repeat: no-repeat;"></i><span>"A" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(../static/Images/B.jpg);background-repeat: no-repeat;"></i><span>"B" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(../static/Images/C.jpg);background-repeat: no-repeat;"></i><span>"C" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(../static/Images/D.jpg);background-repeat: no-repeat;"></i><span>"D" rating</span><br>';
+            div.innerHTML += '<i class="icon" style="background-image: url(../static/Images/F.jpg);background-repeat: no-repeat;"></i><span>"F" rating</span><br>';
             div.innerHTML += "<h6>Data: TEA.gov</h6>";
             return div;
         };
@@ -320,11 +328,11 @@ d3.json(queryUrl).then(data => {
 
             // Create an overlays object to add to the layer control
             let overlayMaps = {
-                "<img src='Images/purple.jpeg' width = 15 /> <span>Up to $250K</span>": layers.one,
-                "<img src='Images/blue.jpeg' width = 15 /> <span>$250K - $500K</span>": layers.two,
-                "<img src='Images/green.jpeg' width = 15 /> <span>$500K - $750K</span>": layers.three,
-                "<img src='Images/yellow.jpeg' width = 15 /> <span>$750K - $1M</span>": layers.four,
-                "<img src='Images/pink.jpeg' width = 15 /> <span>$1M+</span>": layers.five,
+                "<img src='../static/Images/purple.jpeg' width = 15 /> <span>Up to $250K</span>": layers.one,
+                "<img src='../static/Images/blue.jpeg' width = 15 /> <span>$250K - $500K</span>": layers.two,
+                "<img src='../static/Images/green.jpeg' width = 15 /> <span>$500K - $750K</span>": layers.three,
+                "<img src='../static/Images/yellow.jpeg' width = 15 /> <span>$750K - $1M</span>": layers.four,
+                "<img src='../static/Images/pink.jpeg' width = 15 /> <span>$1M+</span>": layers.five,
                 "School Quality": layers.six
             };
 
