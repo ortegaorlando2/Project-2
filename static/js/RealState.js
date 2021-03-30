@@ -1,5 +1,9 @@
+
+// API when using SQL
+let link = "/map_geojson";
+
 // Use this link to get the geojson data.
-let link = "../static/data/har.geojson";
+//let link = "../static/data/har.geojson";
 
 let myMap = L.map("map", {
   center: [29.76, -95.37],
