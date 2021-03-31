@@ -60,26 +60,25 @@ class Datalayer():
         dom = str(df7)
         return str(dom)
 
-    # def orlando(self):
-    #     conn = self.engine.connect()
+    def scatterChart(self):  # scatter chart
+        conn = self.engine.connect()
 
-    #     df_in = pd.read_sql_query(
-    #         "SELECT mls, full_address, zip, subdivision, list_price, bedrooms, total_baths, rating FROM mls", conn)
-    #     df = df_in.to_dict()
-
-    #     return df
+        df8 = pd.read_sql_query("SELECT * FROM areafinal20", conn)
+        print(df8)
+        print(df8.to_dict("records"))
+        return (jsonify(df8.to_dict("records")))
 
     def df_to_geojson(self, df, properties, lat='latitude', lon='longitude'):
-        
+
         # create a new python dict to contain our geojson data, using geojson format
         geojson = {'type': 'FeatureCollection', 'features': []}
-        
+
         # loop through each row in the dataframe and convert each row to geojson format
         for _, row in df.iterrows():
             # create a feature template to fill in
             feature = {'type': 'Feature',
-                'properties': {},
-                'geometry': {'type': 'Point','coordinates': []}}
+                    'properties': {},
+                    'geometry': {'type': 'Point', 'coordinates': []}}
 
             # fill in the coordinates
             feature['geometry']['coordinates'] = [row[lon], row[lat]]
@@ -93,41 +92,31 @@ class Datalayer():
 
         return geojson
 
-
-    def convertToGeoJSon(self): # not retrieving df_to_geojson
+    def convertToGeoJSon(self):  # not retrieving df_to_geojson
         conn = self.engine.connect()
 
         mapdata = pd.read_sql_query("SELECT * FROM mls", conn)
 
-        
         # Convert lat-long to floats
         mapdata['latitude'] = mapdata['latitude'].astype(float)
         mapdata['longitude'] = mapdata['longitude'].astype(float)
 
         # Kept Columns
-        useful_cols = ['mls', 'zip','subdivision','year_built', 'bedrooms', 'full_baths','total_baths', 'list_price', 'market_area', 'full_address', 'latitude', 'longitude', 'rating']
+        useful_cols = ['mls', 'year_built', 'bedrooms', 'full_baths', 'total_baths', 'list_price',
+                    'market_area', 'full_address', 'latitude', 'longitude', 'rating', 'zip', 'subdivision']
         df_subset = mapdata[useful_cols]
 
         # Drop any rows that lack lat/long data
         df_geo = df_subset.dropna(
             subset=['latitude', 'longitude'], axis=0, inplace=False)
-        
 
         df_geo = df_geo.applymap(str)
-        
 
         # Columns for use as Properties
-        useful_columns = ['mls', 'zip','subdivision','year_built', 'bedrooms', 'full_baths','total_baths', 'list_price', 'market_area', 'full_address', 'rating']
+        useful_columns = ['mls', 'year_built', 'bedrooms', 'full_baths', 'total_baths',
+                        'list_price', 'market_area', 'full_address', 'rating', 'zip', 'subdivision']
 
         geojson_dict = self.df_to_geojson(df_geo, properties=useful_columns)
         geojson_str = json.dumps(geojson_dict, indent=2)
         # print(geojson_str)
         return geojson_str
-
-    def scatterChart(self):  # scatter chart
-        conn = self.engine.connect()
-
-        df8 = pd.read_sql_query("SELECT * FROM areafinal20", conn)
-        print(df8)
-        print(df8.to_dict("records"))
-        return (jsonify(df8.to_dict("records")))
