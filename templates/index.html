@@ -52,7 +52,7 @@
                         <ul>
                             <li><a href="/map">Map</a></li>
                             <li><a href="/scatter">Scatter Chart</a></li>
-                            <li><a href="/orlando">Filter Table</a></li>
+                            <li><a href="/filter_table">Filter Table</a></li>
                             <li><a href="#">Pie Chart</a></li>
                             <li><a href="#">Images</a></li>
                             <li><a href="#">Images</a></li>
@@ -414,7 +414,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="stat-text">Houses ready to be sold.</div>
-                                        <div class="stat-digit"> <i class="fa fa-dollar-sign"></i>2,000</div>
+                                        <div class="stat-digit"> <i class="fa fa-dollar-sign"></i>{{mls_count}}</div>
+                                        <a href="/count"></a>
                                     </div>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-success" role="progressbar"
@@ -432,8 +433,9 @@
                                         <i class="fas fa-credit-card"></i>
                                     </div>
                                     <div class="stat-content">
-                                        <div class="stat-text">Sales as of March 25, 2021</div>
-                                        <div class="stat-digit"> <i class="fa fa-dollar-sign"></i>13,223,000</div>
+                                        <div class="stat-text">Avg Price</div>
+                                        <div class="stat-digit"> <i class="fa fa-dollar-sign"></i>{{price}}</div>
+                                        <a href="/price"></a>
                                     </div>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-primary" role="progressbar"
@@ -449,11 +451,11 @@
                                 <div class="stat-widget-two">
                                     <div class="widget-icon color-3">
                                         <i class="fas fa-tasks"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="stat-text">Task Completed</div>
-                                        <div class="stat-digit"> 500</div>
-                                    </div>
+                                        <div class="stat-content">
+                                            <div class="stat-text">Avg Year Built</div>
+                                        <div class="stat-digit"> <i class="fa fa-dollar-sign"></i>{{year}}</div>
+                                        <a href="/year"></a>
+                                        </div>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-warning" role="progressbar"
                                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
@@ -470,8 +472,9 @@
                                         <i class="fas fa-users"></i>
                                     </div>
                                     <div class="stat-content">
-                                        <div class="stat-text">Today Visitor</div>
-                                        <div class="stat-digit"> 650</div>
+                                        <div class="stat-text">Days on the Market</div>
+                                        <div class="stat-digit"> <i class="fa fa-dollar-sign"></i>{{dom}}</div>
+                                        <a href="/dom"></a>
                                     </div>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-danger" role="progressbar"
