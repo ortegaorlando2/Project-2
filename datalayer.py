@@ -17,7 +17,7 @@ class Datalayer():
 
     def __init__(self):
         self.engine = create_engine(connect_string)
-#     self.engine = create_engine("postgresql://postgres:(#2020)MagHou@localhost:5432/etl_team5")
+
 
     def getRawDataFromDB(self):
         session = Session(self.engine)
