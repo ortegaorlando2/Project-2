@@ -17,7 +17,7 @@ The Geojson data as viewed in a JSON viewer:
 <p align="center"><kbd><img width="500" height="auto" src="static/Images/JSON_viewer.PNG"></kbd>
   
 Routes and functions from [app.py](app.py) and [datalayer.py.](datalayer.py):
-<p align="center"><kbd><img "width="600" height="auto" hspace="25" src="static/Images/app.PNG"></kbd><br>
+<p align="center"><kbd><img "width="550" height="auto" hspace="25" src="static/Images/app.PNG"></kbd><br>
 <kbd><img width="500" height="auto" hspace="25" src="static/Images/datalayer.PNG"></kbd></p>
   
 <h3>Landing Page Dashboard with an Interactive Scatter Chart</h3><br>
