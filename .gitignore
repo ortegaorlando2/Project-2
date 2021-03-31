@@ -6,6 +6,7 @@ secrets.py
 Main/secrets.py
 config.js
 Main/config.js
-config.py
 Main/config.py
-
+static/js/config.js
+static\main\secrets.py
+static/Main/secrets.py
