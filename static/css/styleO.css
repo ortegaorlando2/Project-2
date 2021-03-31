@@ -1,11 +1,15 @@
 /*
 * Absolute Position: anchors element to the first element (overall box)
 */
+#sidebarfilters{
+  width: 25%;
+
+}
 
 .box-set {
   position: relative;
   height: 450px;
-  background:  #1a146e;
+  background:  #c7c6db;
 }
 
 .box {
@@ -13,7 +17,7 @@
   position: absolute;
   width: 150px;
   height: 150px;
-  background:  #1a146e;
+  background:  #c7c6db;
   border: 0px solid white;
 }
       
@@ -32,11 +36,13 @@
 .box-3 {
   right: 500px;
   bottom: -200px;
-}
+} */
 
 .box-4 {
-  bottom: -200px;
-  left: -300px
+  /* bottom: 250px;
+  left: 250px */
+  width: 540px;
+  grid-template-columns: 180px 180px;
 }     
 
 /* Header rules used for home search webpage: */
@@ -51,18 +57,18 @@
         color: black;
       }
       
-      h3 {
-        color: rgb(19, 21, 173);
+      h4 {
+        color: rgb(68, 70, 207);
       }
       
       img {
         box-shadow: 3px 3px 5px white;
       }
       
-      section {
+      /* section {
         background-color: #000;
         color: deeppink
-      }
+      } */
       
       p {
         font-size: 15px;

@@ -51,40 +51,16 @@ function getColor(d) {
 
   //***********************GET HAR DATA*********************/
   mls=properties.mls
-  //console.log(mls)
-  // street_number=properties.street_number 
-  // street_name = properties.street_name  
-  // unit = properties.unit
-  // city = properties.city
   zip = properties.zip
-  // county = properties.county
   subdivision = properties.subdivision
-  // home_type = properties.home_type
-  // year_built = properties.year_built
   bedrooms = properties.bedrooms
-  // full_bath = properties.full_bath
-  // half_bath = properties.half_bath
   total_baths = properties.total_baths
-  // room_count = properties.room_count_i
-  // fireplaces = properties.fireplaces
-  // stories = properties.stories
-  // pool_private = properties.pool_private
-  // garages = properties.garages
-  // style = properties.style
   list_price = properties.list_price
   market_area = properties.market_area
   area = properties.area
-  // dom = properties.dom
-  // cdom = properties.cdom
-  // list_date = properties.list_date
-  // school_district = properties.school_district
-  // elementary = properties.elementary
-  // high_school = properties.high_school
   full_address = properties.full_address
-  // latitude = properties.latitude
-  // longitude = properties.longitude
-  // geocode = properties.geocode
   rating = properties.rating
+
   dict_i["mls"]= mls
   dict_i["address"]= full_address
   dict_i["zip"]= zip
@@ -95,7 +71,7 @@ function getColor(d) {
   dict_i["rating"] = rating
   
   lisDict.push(dict_i)
-  //console.log(lisDict)
+  
 }
 
   //-------------IMPORT DATA TABLE-------------------------
@@ -118,13 +94,9 @@ function getColor(d) {
 
     lisDict.forEach (processRecord);
 
-
-  //----------------------------------------
-
-
   // ~~~~~~~~~~~~~~~~FORMS~~~~~~~~~~~~~~~~~~~~
 
-  // Assign the data from `data.js` to a descriptive variable
+  // Assign the data to a descriptive variable
   let RScase = lisDict;
   let buttonA = d3.select("#buttonA");
   let buttonB = d3.select("#buttonB");
@@ -135,10 +107,6 @@ function getColor(d) {
   let form3 = d3.select("#form3");
   let form4 = d3.select("#form4");
 
-
-
-  // for (let i=1; i < RScase.length; i++){
-  //     console.log(RScase.datetime).text()}
 
   // Create event handlers 
   buttonA.on("click", runEnter1);
@@ -160,16 +128,16 @@ function getColor(d) {
   let inputValue = inputElement.property("value");
   let inputValueint = parseInt(inputValue)
 
-  console.log(inputValueint)
+  // console.log(inputValueint)
   let maxPrice = inputValueint+inputValueint*0.10
   let minPrice = inputValueint-inputValueint*0.10
-  console.log(maxPrice)
+  // console.log(maxPrice)
   //console.log(RScase)
 
     let filteredData1 = RScase.filter(theones => 
       theones.Price >= minPrice && theones.Price <= maxPrice); 
 
-      console.log(filteredData1);
+      // console.log(filteredData1);
 
     
       // d3.select('.table')
@@ -177,8 +145,8 @@ function getColor(d) {
       tableElement1.classed('table-striped', true)
       let tbody1 = tableElement1.select('tbody')
       tbody1.html("")
-      console.log(tableElement1)
-      console.log(tbody1)
+      // console.log(tableElement1)
+      // console.log(tbody1)
 
 
       //define callback function
@@ -191,9 +159,6 @@ function getColor(d) {
     }
 
 
-
-
-
   function runEnter2(event) {
 
     // Prevent the page from refreshing
@@ -202,20 +167,13 @@ function getColor(d) {
     //// elementary to rating
     // Select the input element and get the raw HTML node
     let inputElement = d3.select("#S2"); 
-    console.log(`rating ${inputElement}`)
+    // console.log(`rating ${inputElement}`)
 
     // Get the value property of the input element
     let inputValue = inputElement.property("value");
-    console.log(`values ${inputValue}`)
-
-    console.log(inputValue);
 
     let filteredData2 = RScase.filter(theones => 
-      theones.rating >= inputValue);
-
-      console.log(filteredData2); 
-    
-    ////////// end of elementary
+      theones.rating <= inputValue);
 
   
       let tableElement2 = d3.select('#Subset')
@@ -243,12 +201,12 @@ function getColor(d) {
     let inputElement = d3.select("#S3"); 
     // Get the value property of the input element
     let inputValue = inputElement.property("value");
-    console.log(`mls ${inputValue}`)
-    console.log(inputValue);
+    // console.log(`mls ${inputValue}`)
+    // console.log(inputValue);
   
     let filteredData3 = RScase.filter(theones => 
     theones.mls === inputValue); 
-    console.log(filteredData3); 
+    // console.log(filteredData3); 
 
     let tableElement3 = d3.select('#Subset')
     //change the table format to something more attractive
