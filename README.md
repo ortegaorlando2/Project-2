@@ -5,7 +5,7 @@
 <h2>Real Estate Dashboard - with user interactivity</h2>
 The project provides a visualization of GeoJSON real estate data utilizing Leaflet, JavaScript, Mapbox, and deployed utilizing Flask and Heroku.
 
-<h2>Data</h2>
+<h3>Data</h3>
 Data was sourced from the Houston Association of REALTORS® and downloaded as a .csv.<a href="https://www.HAR.com"> Visit HAR.</a>
 
 Real Estate data lends itself naturally to maps and the downloaded data required transformation in Python and Jupyter Notebook to obtain a list of full addresses suitable for geocoding.  The geocoding was performed in Jupyter Notebook using Geopy and is a hour+ run. The code is commented out to allow code blocks to run in a reasonable time frame. Once geocoded the dataframe was was converted and saved as a [GeoJSON file](static/data/har.geojson).
