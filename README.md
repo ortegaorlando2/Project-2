@@ -2,6 +2,7 @@
 <p align="center"><img width="100%" height="60px" src="static/Images/header.PNG"></p>            
 <body>
 <p>
+<h2>Real Estate Dashboard - with user interactivity</h2>
 The project provides a visualization of GeoJSON real estate data utilizing Leaflet, JavaScript, Mapbox, and deployed utilizing Flask and Heroku.
 
 <h2>Data</h2>
@@ -15,8 +16,7 @@ After the visualization was built the data source was routed to the SQL database
 The Geojson data as viewed in a JSON viewer:
 <p align="center"><kbd><img width="500" height="auto" src="static/Images/JSON_viewer.PNG"></kbd>
   
-<h2>Dashboard</h2>
-<h3>Landing Page with an Interactive Scatter Chart</h3><br>
+<h3>Landing Page Dashboard with an Interactive Scatter Chart</h3><br>
 The dashboard has a landing page with five visualizations and additional visualizations are accessed from a collapsing navigation bar on the left of the page.
 
 Four small boxes across the top of the page pull summary data from SQL.  In [datalayer.py](datalayer.py) functions are created to extract data from SQL and perform the mathematical operations of count and average. Data is formatted in the function to provide an attractive experience for the user. A scatter chart allows the user to explore different combinations of data metrics.
@@ -44,8 +44,8 @@ The same geojson route was used to populate a table that allows the user to filt
 
 Users may view code at the following links:
 
-To view the JavaScript code: [JavaScript Code](static/js/)<br>   
-To view the landing pageHTML code: [HTML Code](templates/index.html)<br>                         
+To view the JavaScript code: [JavaScript Code](static/js/)   
+To view the landing pageHTML code: [HTML Code](templates/index.html)                       
 To view the CSS code: [CSS code](static/css/)</p>  
 
 </body>
