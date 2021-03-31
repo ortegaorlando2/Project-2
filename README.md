@@ -17,13 +17,13 @@ The Geojson data as viewed in a JSON viewer:
 <p align="center"><kbd><img width="500" height="auto" src="static/Images/JSON_viewer.PNG"></kbd>
   
 Routes and functions from [app.py](app.py) and [datalayer.py.](datalayer.py):
-<p align="center"><kbd><img "width="550" height="auto" hspace="25" src="static/Images/app.PNG"></kbd><br>
-<kbd><img width="500" height="auto" hspace="25" src="static/Images/datalayer.PNG"></kbd></p>
+<p align="center"><kbd><img "width="550" height="auto" hspace="25" src="static/Images/app.PNG"></kbd></p><br>
+<p align="center"><kbd><img width="500" height="auto" hspace="25" src="static/Images/datalayer.PNG"></kbd></p>
   
 <h3>Landing Page Dashboard with an Interactive Scatter Chart</h3><br>
 The dashboard has a landing page with five visualizations and additional visualizations are accessed from a collapsing navigation bar on the left of the page.
 
-Four small boxes across the top of the page pull summary data from SQL.  In [datalayer.py](datalayer.py) functions are created to extract data from SQL and perform the mathematical operations of count and average. Data is formatted in the function to provide an attractive experience for the user. A scatter chart allows the user to explore different combinations of data metrics.
+Four small boxes across the top of the page pull summary data from SQL.  In [datalayer.py](datalayer.py) functions are created to extract data from SQL and perform the mathematical operations of count and average. Data is formatted in the function to provide an attractive experience for the user. A scatter chart allows the user to explore eight different combinations of data metrics.
 <p align="center"><kbd><img width="600" height="auto" src="static/Images/landingpage.PNG"></kbd>
 
 <h3>Interactive Map Visualization</h3><br>
