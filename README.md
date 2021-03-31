@@ -24,7 +24,7 @@ Routes and functions from [app.py](app.py) and [datalayer.py.](datalayer.py):
 The dashboard has a landing page with five visualizations and additional visualizations are accessed from a collapsing navigation bar on the left of the page.
 
 Four small boxes across the top of the page pull summary data from SQL.  In [datalayer.py](datalayer.py) functions are created to extract data from SQL and perform the mathematical operations of count and average. Data is formatted in the function to provide an attractive experience for the user. A scatter chart allows the user to explore different combinations of data metrics.
-<p align="center"><kbd><img width="500" height="auto" src="static/Images/landingpage.PNG"></kbd>
+<p align="center"><kbd><img width="600" height="auto" src="static/Images/landingpage.PNG"></kbd>
 
 <h3>Interactive Map Visualization</h3><br>
 The language JavaScript was used to code the primary map.  Using Leaflet the geojson file was read.  Street Map and Light Map layers were coded utilizing mapbox. These two layers are the base layers for the map and the user may choose which view they prefer.  Five layers were produced to create price bands for homes. The user may select one or more of the price bands to populate the map.  
