@@ -1,4 +1,8 @@
-let svgArea = d3.select("body").select("svg");
+// API when using SQL
+let link = "/scatter_data";
+
+
+// let svgArea = d3.select("body").select("svg");
 
 let svgWidth = 1000;
 let svgHeight = 1000;
@@ -70,7 +74,7 @@ function yRenderAxes(newYScale, yAxis) {
 
   yAxis.transition()
     .duration(1000)
-    .call(leftAxis);
+    .call(leftAxis.tickFormat(d3.format("d")));
 
   return yAxis;
 }
@@ -99,8 +103,11 @@ function renderText(textGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
     return textGroup;
 }
 
-// Read CSV
-d3.csv("../static/data/areafinal20.csv").then(function(areaData) {
+// // Read CSV
+// d3.csv("../static/data/areafinal20.csv").then(function(areaData) {
+
+//Read in json
+d3.json(link).then(function(areaData) {
 
   console.log(areaData);
 
@@ -133,7 +140,7 @@ d3.csv("../static/data/areafinal20.csv").then(function(areaData) {
       // append y axis
     let yAxis = chartGroup.append("g")
       .classed("y-axis", true)
-      .call(leftAxis);    
+      .call(leftAxis.tickFormat(d3.format("d")));    
 
     // append initial circles
     var circlesGroup = chartGroup.selectAll("circle")
