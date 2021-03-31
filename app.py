@@ -34,23 +34,12 @@ def index():
     return render_template('index.html',mls_count=mls_count,price=price,year=year,dom=dom)
 
 
-# create route that renders map.html template
-@app.route("/orlando")
-def orlado():
-    return render_template("index_orlando.html")        
-
-# create route that renders map.html template
-@app.route("/scatter")
-def scatter():
-    return render_template("index_scatter.html")
-    
+# create route that renders filtered table template    
 @app.route("/filter_table")
 def filter_table():
     return render_template("index_orlando.html")
-    
 
 @app.route("/map")
-
 def map():
     return render_template("map.html")
 
@@ -58,24 +47,14 @@ def map():
 def map_geojson():
     return db.convertToGeoJSon()
 
+# create route that renders index_scatter.html template
+@app.route("/scatter")
+def scatter():
+    return render_template("index_scatter.html")
 
-
-
-
-
-
-
-    #return render_template("map.html")
-    
-
-    # # Old option
-    # # Getting data from SQL
-    # mls_df = db.getRawDataFromDB()
-    # geojson = db.convertToGeoJSon(mls_df)
-    # # check name of file being passed to map.html
-    # return render_template("map.html",data=jsonify(geojson))
-
-    
+@app.route("/scatter_data")
+def scat_data():
+    return db.scatterChart()
 
 #### ERRORS ################################
 # 404 error handling
