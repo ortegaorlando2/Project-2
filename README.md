@@ -9,7 +9,7 @@ Data was sourced from the Houston Association of REALTORS® and downloaded as a 
 
 Real Estate data lends itself naturally to maps and the downloaded data required transformation in Python and Jupyter Notebook to obtain a list of full addresses suitable for geocoding.  The geocoding was performed in Jupyter Notebook using Geopy and is a hour+ run. The code is commented out to allow code blocks to run in a reasonable time frame. Once geocoded the dataframe was was converted and saved as a [GeoJSON file](static/data/har.geojson).
 
-After the visualization was built the data source was routed to the SQL database via [Jupyter Notebook.](static/ETL/Master-github.jpynb).  Python code was added to a [datalayer file.](datalayer.py) to convert to GeoJson, and a route created for the converted data in [an app.py file.](app.py). This route is used by two visualizations.  
+After the visualization was built the data source was routed to the SQL database via [Jupyter Notebook.](static/ETL/Master-github.ipynb).  Python code was added to a [datalayer file.](datalayer.py) to convert to GeoJson, and a route created for the converted data in [an app.py file.](app.py). This route is used by two visualizations.  
 <p align="center"><kbd><img width="500" height="auto" style= "border:3px solid black;" src="static/Images/geopy_code.PNG"></kbd>
   
 The Geojson data as viewed in a JSON viewer:
