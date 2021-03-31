@@ -15,7 +15,7 @@ After the visualization was built the data source was routed to the SQL database
 The Geojson data as viewed in a JSON viewer:
 <p align="center"><kbd><img width="500" height="auto" src="static/Images/JSON_viewer.PNG"></kbd>
   
-<h2>Dashboard</h2><br>
+<h2>Dashboard</h2>
 <h3>Landing Page with an Interactive Scatter Chart</h3><br>
 The dashboard has a landing page with five visualizations and additional visualizations are accessed from a collapsing navigation bar on the left of the page.
 
